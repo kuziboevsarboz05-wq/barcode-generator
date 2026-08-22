@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Генератор штрих-кодов 58×40</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f4f6;font-family:Arial,sans-serif;color:#111827}
+.wrap{max-width:900px;margin:30px auto;padding:20px}.card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 3px 18px #0001}
+h1{margin:0 0 6px;font-size:26px}.sub{color:#6b7280;margin-bottom:22px}
+label{font-weight:700;display:block;margin-bottom:8px}
+textarea{width:100%;min-height:180px;padding:12px;border:1px solid #d1d5db;border-radius:10px;font:16px Arial;resize:vertical}
+button{margin-top:12px;padding:12px 18px;border:0;border-radius:9px;background:#111827;color:#fff;font-weight:700;cursor:pointer}
+.hint{margin-top:12px;color:#6b7280;font-size:13px;line-height:1.5}
+.preview{margin-top:22px;background:#e5e7eb;padding:25px;border-radius:10px;text-align:center}
+.label{display:inline-flex;width:58mm;height:40mm;background:#fff;flex-direction:column;align-items:center;justify-content:center;border:.25mm solid #111}
+.fakebars{width:48mm;height:20mm;background:repeating-linear-gradient(90deg,#000 0,#000 1px,#fff 1px,#fff 2px,#000 2px,#000 4px,#fff 4px,#fff 6px)}
+.num{font-size:3.5mm;margin-top:2mm}
+@media print{
+@page{size:58mm 40mm;margin:0}body{background:#fff}.wrap{padding:0;margin:0}.card>*:not(.preview){display:none!important}.card{padding:0;box-shadow:none}.preview{padding:0;margin:0;background:#fff}.label{width:58mm;height:40mm}
+}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+<h1>Генератор штрих-кодов</h1>
+<div class="sub">Чистая этикетка 58×40 мм — только штрих-код и номер.</div>
+<form action="/generate" method="post">
+<label>Номера — по одному в каждой строке</label>
+<textarea name="codes" placeholder="451389756443000&#10;451389756443001&#10;451389756443002"></textarea>
+<button type="submit">Скачать PDF 58×40 мм</button>
+</form>
+<div class="hint">Можно вставить один или сразу сотни номеров. Каждый номер станет отдельной этикеткой в одном PDF.</div>
+<div class="preview"><div class="label"><div class="fakebars"></div><div class="num">451389756443000</div></div></div>
+</div></div>
+</body>
+</html>
