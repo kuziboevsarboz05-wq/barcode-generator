@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#155eef">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>ШтрихКод — генератор этикеток</title>
+</head>
+<body>
+  <header class="top"><div class="brand"><span class="mark">|||</span> ШтрихКод</div><span class="pill">Работает без интернета</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">ГЕНЕРАТОР ЭТИКЕТОК</p><h1>Штрих‑коды 58 × 40 мм</h1><p>Вставьте один или много номеров. Готовые этикетки можно распечатать или сохранить в PDF прямо из браузера.</p></div><div class="size-card"><b>58 × 40 мм</b><span>точный размер при печати 100%</span></div></section>
+    <section class="workspace">
+      <form id="form" class="panel" novalidate>
+        <label for="numbers">Номера товаров</label>
+        <textarea id="numbers" spellcheck="false" placeholder="Например:
+482000000001
+482000000002
+или диапазон: 10001-10050"></textarea>
+        <p class="hint">По одному в строке, через запятую или диапазоном. Допустимы цифры, латинские буквы, дефис и пробел.</p>
+        <div class="options">
+          <label><span>Название над кодом <em>необязательно</em></span><input id="label" maxlength="70" placeholder="Например, Склад А"></label>
+          <label><span>Тип кода</span><select id="format"><option value="CODE128">Code 128 — для номеров</option><option value="CODE39">Code 39 — совместимый</option></select></label>
+        </div>
+        <div class="actions"><button class="primary" type="submit">Создать этикетки</button><button class="secondary" type="button" id="demo">Пример</button></div>
+        <p id="error" role="alert" class="error"></p>
+      </form>
+      <aside class="how"><h2>Как пользоваться</h2><ol><li>Вставьте номера товаров.</li><li>Проверьте карточки справа.</li><li>Нажмите «Печать / PDF».</li></ol><p>Для точного размера в окне печати выберите масштаб <b>100%</b> и отключите поля.</p></aside>
+    </section>
+    <section id="results" class="results" hidden>
+      <div class="result-head"><div><p class="eyebrow">ГОТОВО</p><h2 id="count">Этикетки</h2></div><div class="result-actions"><button class="secondary" id="download">Скачать SVG</button><button class="primary" id="print">Печать / PDF</button></div></div>
+      <p class="print-note">На печати одна этикетка занимает страницу 58 × 40 мм.</p>
+      <div id="labels" class="labels"></div>
+    </section>
+  </main>
+  <footer>Данные не уходят в сеть — всё создаётся на вашем устройстве.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
